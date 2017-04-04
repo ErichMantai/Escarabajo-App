@@ -36,5 +36,9 @@ public class CardapioService {
     public List<Cardapio> getAll() {
         return repository.findAll();
     }
+
+    public void delete(Long icardad) {
+         repository.delete(icardad);
+    }
     
 }

@@ -10,6 +10,7 @@ import com.escarabajo.repository.CardapioRepository;
 import com.escarabajo.services.CardapioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +42,12 @@ public class CardapioController {
     public List<Cardapio> getAll() {
         return service.getAll();
     }
+    @RequestMapping(method = RequestMethod.DELETE)
+    public ResponseEntity deletecardapio(@PathVariable Long id) {
+         service.delete(id);
+         return ResponseEntity.noContent().build();
+    }
     
-
+    
 
 }
